@@ -68,5 +68,3 @@ students = pd.DataFrame(OrderedDict([
 ## 3-2. 시리즈 속성 알아보기
 
 <br/>
-
-|---|---|
