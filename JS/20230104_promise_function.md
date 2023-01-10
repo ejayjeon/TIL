@@ -8,5 +8,18 @@ date: 2023.01.04.Wed.
  <br/><br/>
 
 ```js
+// Vue 전역으로 socket 등록
+this.$socket.emit(command, options, () => {})
+```
 
+```js
+async emitter(command, args) {
+  return new Promise((resolve, reject) => {
+    try {
+
+    } catch (error) {
+      
+    }
+  });
+},
 ```
