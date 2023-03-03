@@ -142,7 +142,7 @@ function _map(list, mapper) {
 
 <br><br>
 
-## 5. 커링: 일반적인 함수를 커링이 되도록
+## 5. 커링: 일반적인 함수를 보유하고 있다가, 추후에 함수를 실행하는 기법
 ```js
 function _curry(fn) {
   return function(a, b) {
@@ -155,4 +155,42 @@ function _curry(fn) {
 var add = _curry(function(a, b) { return a + b });
 var add10 = add(10)
 console.log(add10(5)); // 15
+```
+
+```js
+// 왼쪽이 아니라 오른쪽에서부터 인자를 적용해 나가는 함수
+function _curryr(fn) {
+  return function(a, b) {
+    return arguments.length === 2 ? fn(a, b) : function(b) {
+      return fn(b, a);
+    };
+  }
+}
+
+var sub = _curryr(function(a, b) {
+  return a - b;
+});
+
+var sub10 = sub(10);
+console.log(sub10(5)); 
+```
+
+## 6. get : 원하는 key 값을 참는 함수
+```js
+function _get(obj, key) {
+  // Object가 null이 아닐 경우에만 결괏값 리턴
+  return obj == null ? undefined : obj[key];
+}
+
+var user1 = users[0];
+_get(user1, 'name'); // 원하는 key를 찾아서 해당 object를 가지고 옴
+
+// _get 함수에 curryr 적용
+var _get = _curryr(function(obj, key) {
+    return obj == null ? undefined : obj[key];
+  }
+})
+
+_get('name')(user1); // user1의 name을 가지고 오게 함
+
 ```
