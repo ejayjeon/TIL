@@ -138,3 +138,21 @@ function _map(list, mapper) {
   return new_list;
 }
 ```
+
+
+<br><br>
+
+## 5. 커링: 일반적인 함수를 커링이 되도록
+```js
+function _curry(fn) {
+  return function(a, b) {
+    return arguments.length === 2 ? fn(a, b) : function(b) {
+      return fn(a, b);
+    }
+  }
+}
+
+var add = _curry(function(a, b) { return a + b });
+var add10 = add(10)
+console.log(add10(5)); // 15
+```
