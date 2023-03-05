@@ -1,6 +1,6 @@
 :calendar: 2023. 02. 28. Tue.
 
-# :memo: 삽입정렬(Insertion Sort) 2. by. Python
+# :memo: 2. 삽입정렬(Insertion Sort) by. Python
 ## 두 개의 정렬된 배열(리스트) 병합
 
 1. 제한사항
